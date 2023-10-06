@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @global_electricity_statistic %>
+
+<div>
+  <%= link_to "Edit this global electricity statistic", edit_global_electricity_statistic_path(@global_electricity_statistic) %> |
+  <%= link_to "Back to global electricity statistics", global_electricity_statistics_path %>
+
+  <%= button_to "Destroy this global electricity statistic", @global_electricity_statistic, method: :delete %>
+</div>

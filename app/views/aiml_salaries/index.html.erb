@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Aiml salaries</h1>
+
+<div id="aiml_salaries">
+  <% @aiml_salaries.each do |aiml_salary| %>
+    <%= render aiml_salary %>
+    <p>
+      <%= link_to "Show this aiml salary", aiml_salary %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New aiml salary", new_aiml_salary_path %>

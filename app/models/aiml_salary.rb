@@ -1,0 +1,2 @@
+class AimlSalary < ApplicationRecord
+end

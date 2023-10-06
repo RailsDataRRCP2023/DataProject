@@ -1,0 +1,2 @@
+class WorldBankCountry < ApplicationRecord
+end

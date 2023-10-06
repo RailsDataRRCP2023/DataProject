@@ -1,0 +1,82 @@
+<%= form_with(model: world_bank_country) do |form| %>
+  <% if world_bank_country.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(world_bank_country.errors.count, "error") %> prohibited this world_bank_country from being saved:</h2>
+
+      <ul>
+        <% world_bank_country.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Country_Name, style: "display: block" %>
+    <%= form.text_field :Country_Name %>
+  </div>
+
+  <div>
+    <%= form.label :Country_Code, style: "display: block" %>
+    <%= form.text_field :Country_Code %>
+  </div>
+
+  <div>
+    <%= form.label :Year, style: "display: block" %>
+    <%= form.number_field :Year %>
+  </div>
+
+  <div>
+    <%= form.label :Agriculture, style: "display: block" %>
+    <%= form.text_field :Agriculture %>
+  </div>
+
+  <div>
+    <%= form.label :Ease_of_Doing_Business, style: "display: block" %>
+    <%= form.text_field :Ease_of_Doing_Business %>
+  </div>
+
+  <div>
+    <%= form.label :Education_Expenditure, style: "display: block" %>
+    <%= form.text_field :Education_Expenditure %>
+  </div>
+
+  <div>
+    <%= form.label :Export, style: "display: block" %>
+    <%= form.text_field :Export %>
+  </div>
+
+  <div>
+    <%= form.label :GDP, style: "display: block" %>
+    <%= form.text_field :GDP %>
+  </div>
+
+  <div>
+    <%= form.label :Health_Expenditure, style: "display: block" %>
+    <%= form.text_field :Health_Expenditure %>
+  </div>
+
+  <div>
+    <%= form.label :Import, style: "display: block" %>
+    <%= form.text_field :Import %>
+  </div>
+
+  <div>
+    <%= form.label :Industry, style: "display: block" %>
+    <%= form.text_field :Industry %>
+  </div>
+
+  <div>
+    <%= form.label :Inflation_Rate, style: "display: block" %>
+    <%= form.text_field :Inflation_Rate %>
+  </div>
+
+  <div>
+    <%= form.label :R, style: "display: block" %>
+    <%= form.text_field :R %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

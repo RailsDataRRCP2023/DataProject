@@ -1,0 +1,1 @@
+json.partial! "global_electricity_statistics/global_electricity_statistic", global_electricity_statistic: @global_electricity_statistic

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>World bank countries</h1>
+
+<div id="world_bank_countries">
+  <% @world_bank_countries.each do |world_bank_country| %>
+    <%= render world_bank_country %>
+    <p>
+      <%= link_to "Show this world bank country", world_bank_country %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New world bank country", new_world_bank_country_path %>

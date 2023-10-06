@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aiml_salary %>
+
+<div>
+  <%= link_to "Edit this aiml salary", edit_aiml_salary_path(@aiml_salary) %> |
+  <%= link_to "Back to aiml salaries", aiml_salaries_path %>
+
+  <%= button_to "Destroy this aiml salary", @aiml_salary, method: :delete %>
+</div>

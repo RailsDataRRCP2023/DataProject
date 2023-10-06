@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @world_bank_country %>
+
+<div>
+  <%= link_to "Edit this world bank country", edit_world_bank_country_path(@world_bank_country) %> |
+  <%= link_to "Back to world bank countries", world_bank_countries_path %>
+
+  <%= button_to "Destroy this world bank country", @world_bank_country, method: :delete %>
+</div>

@@ -1,0 +1,2 @@
+module AimlSalariesHelper
+end

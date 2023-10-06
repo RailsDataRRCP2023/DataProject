@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Country: MyString
+  Features: MyString
+  Region: MyString
+  1980: 9.99
+  1981: 9.99
+  1982: 9.99
+  1983: 9.99
+  ...: MyString
+  2021: 9.99
+
+two:
+  Country: MyString
+  Features: MyString
+  Region: MyString
+  1980: 9.99
+  1981: 9.99
+  1982: 9.99
+  1983: 9.99
+  ...: MyString
+  2021: 9.99

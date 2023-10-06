@@ -1,0 +1,2 @@
+module GlobalElectricityStatisticsHelper
+end

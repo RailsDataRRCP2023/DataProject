@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Global electricity statistics</h1>
+
+<div id="global_electricity_statistics">
+  <% @global_electricity_statistics.each do |global_electricity_statistic| %>
+    <%= render global_electricity_statistic %>
+    <p>
+      <%= link_to "Show this global electricity statistic", global_electricity_statistic %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New global electricity statistic", new_global_electricity_statistic_path %>

@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_year: 1
+  experience_level: MyString
+  employment_type: MyString
+  job_title: MyString
+  salary: 9.99
+  salary_currency: MyString
+  salary_in_usd: 9.99
+  employee_residence: MyString
+  remote_ratio: 1
+  company_location: MyString
+  company_size: MyString
+
+two:
+  work_year: 1
+  experience_level: MyString
+  employment_type: MyString
+  job_title: MyString
+  salary: 9.99
+  salary_currency: MyString
+  salary_in_usd: 9.99
+  employee_residence: MyString
+  remote_ratio: 1
+  company_location: MyString
+  company_size: MyString
