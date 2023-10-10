@@ -1,2 +1,4 @@
 class GlobalElectricityStatistic < ApplicationRecord
-end
+    validates :Country, :Features, :Region, presence: true
+  end
+  
