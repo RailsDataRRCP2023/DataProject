@@ -1,14 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Aiml salaries</h1>
+<h1>AI ML Salaries</h1>
 
 <div id="aiml_salaries">
+  <p class="bg-primary-subtle">
+    Page <%= @page %> of <%= @pages %>
+    Pick a page:
+    <% (1..@pages).each do |page| %>
+      <% if page == @page %>
+        <%= page %>
+      <% else %>
+        <a href="<%= aiml_salaries_path(page: page - 1) %>"><%= page %></a>
+      <% end %>
+    <% end %>
+  </p>
+
   <% @aiml_salaries.each do |aiml_salary| %>
-    <%= render aiml_salary %>
-    <p>
-      <%= link_to "Show this aiml salary", aiml_salary %>
+    <p class="bg-secondary-subtle">
+      <%= render aiml_salary %>
+      <p>
+        <%= link_to "Show this AI ML salary", aiml_salary %>
+      </p>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New aiml salary", new_aiml_salary_path %>
+<%= link_to "New AI ML salary", new_aiml_salary_path %>

@@ -3,7 +3,9 @@ class AimlSalariesController < ApplicationController
 
   # GET /aiml_salaries or /aiml_salaries.json
   def index
-    @aiml_salaries = AimlSalary.all
+    @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
+    @aiml_salaries = AimlSalary.limit(100).all
+    @pages = AimlSalary.count / 100
   end
 
   # GET /aiml_salaries/1 or /aiml_salaries/1.json
