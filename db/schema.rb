@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_10_172125) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_173326) do
   create_table "aiml_salaries", force: :cascade do |t|
     t.integer "work_year"
     t.string "experience_level"
@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_172125) do
     t.string "company_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "country_name_id", null: false
+    t.index ["country_name_id"], name: "index_aiml_salaries_on_country_name_id"
   end
 
   create_table "country_names", force: :cascade do |t|
@@ -106,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_172125) do
     t.index ["country_name_id"], name: "index_world_bank_countries_on_country_name_id"
   end
 
+  add_foreign_key "aiml_salaries", "country_names"
   add_foreign_key "global_electricity_statistics", "country_names"
   add_foreign_key "world_bank_countries", "country_names"
 end
