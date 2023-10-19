@@ -3,6 +3,13 @@
 require 'csv'
 require 'json'
 
+# Clear all tables
+pp 'Clear all tables'
+AimlSalary.destroy_all
+GlobalElectricityStatistic.destroy_all
+WorldBankCountry.destroy_all
+CountryName.destroy_all
+
 # AIMLsalaries Dataset
 pp 'AIMLsalaries Dataset'
 CSV.foreach('db/aiml_salaries.csv', headers: true) do |row|
