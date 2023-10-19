@@ -3,7 +3,9 @@ class GlobalElectricityStatisticsController < ApplicationController
 
   # GET /global_electricity_statistics or /global_electricity_statistics.json
   def index
-    @global_electricity_statistics = GlobalElectricityStatistic.all
+    @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
+    @global_electricity_statistics = GlobalElectricityStatistic.limit(100).all
+    @pages = GlobalElectricityStatistic.count / 100
   end
 
   # GET /global_electricity_statistics/1 or /global_electricity_statistics/1.json
