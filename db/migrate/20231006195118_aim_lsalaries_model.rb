@@ -12,7 +12,7 @@ class CreateAimlSalaries < ActiveRecord::Migration[7.0]
       t.integer :remote_ratio
       t.string :company_location
       t.string :company_size
-      t.references :country_name, foreign_key: { to_table: :country_names }  # Assuming a foreign key to CountryName model
+      t.references :country_name, foreign_key: { to_table: :country_names } 
 
       t.timestamps
     end
