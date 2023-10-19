@@ -1,9 +1,7 @@
 class CreateGlobalElectricityStatistics < ActiveRecord::Migration[7.0]
   def change
     create_table :global_electricity_statistics do |t|
-      t.string :Country
       t.string :Features
-      t.string :Region
       t.decimal :_1980
       t.decimal :_1981
       t.decimal :_1982
@@ -46,6 +44,8 @@ class CreateGlobalElectricityStatistics < ActiveRecord::Migration[7.0]
       t.decimal :_2019
       t.decimal :_2020
       t.decimal :_2021
+
+      t.references :country_name, null: false, foreign_key: true
 
       t.timestamps
     end

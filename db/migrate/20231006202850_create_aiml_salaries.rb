@@ -8,10 +8,9 @@ class CreateAimlSalaries < ActiveRecord::Migration[7.0]
       t.decimal :salary
       t.string :salary_currency
       t.decimal :salary_in_usd
-      t.string :employee_residence
       t.integer :remote_ratio
-      t.string :company_location
       t.string :company_size
+      t.references :country_name, null: false, foreign_key: true
 
       t.timestamps
     end
