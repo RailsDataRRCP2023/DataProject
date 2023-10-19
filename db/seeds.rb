@@ -3,6 +3,18 @@
 require 'csv'
 require 'json'
 
+# Countries Names Dataset
+pp 'Countries Names Dataset'
+countries_names_json = File.read('db/Countries_Names.json')
+countries_names_hash = JSON.parse(countries_names_json)
+countries_names_hash.each do |code, name|
+    begin
+        CountryName.create!(country_code: code, country_name: name)
+    rescue => exception
+        pp exception
+    end
+end
+
 # AIMLsalaries Dataset
 pp 'AIMLsalaries Dataset'
 CSV.foreach('db/aiml_salaries.csv', headers: true) do |row|
@@ -33,14 +45,4 @@ CSV.foreach('db/world_bank_countries.csv', headers: true) do |row|
     end
 end
 
-# Countries Names Dataset
-pp 'Countries Names Dataset'
-countries_names_json = File.read('db/Countries_Names.json')
-countries_names_hash = JSON.parse(countries_names_json)
-countries_names_hash.each do |code, name|
-    begin
-        CountryName.create!(country_code: code, country_name: name)
-    rescue => exception
-        pp exception
-    end
-end
+
