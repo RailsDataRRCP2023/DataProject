@@ -3,6 +3,13 @@
 require 'csv'
 require 'json'
 
+# Clear all tables
+pp 'Clear all tables'
+AimlSalary.destroy_all
+GlobalElectricityStatistic.destroy_all
+WorldBankCountry.destroy_all
+CountryName.destroy_all
+
 # Countries Names Dataset
 pp 'Countries Names Dataset'
 countries_names_json = File.read('db/Countries_Names.json')
