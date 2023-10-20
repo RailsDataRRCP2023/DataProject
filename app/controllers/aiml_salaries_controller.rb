@@ -67,6 +67,6 @@ class AimlSalariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aiml_salary_params
-      params.require(:aiml_salary).permit(:work_year, :experience_level, :employment_type, :job_title, :salary, :salary_currency, :salary_in_usd, :employee_residence, :remote_ratio, :company_location, :company_size)
+      params.require(:aiml_salary).permit(:work_year, :experience_level, :employment_type, :job_title, :salary, :salary_currency, :salary_in_usd, :remote_ratio, :company_size, :country_name_id)
     end
 end
