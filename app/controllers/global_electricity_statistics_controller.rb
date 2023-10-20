@@ -67,7 +67,6 @@ class GlobalElectricityStatisticsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def global_electricity_statistic_params
-      params.require(:global_electricity_statistic).permit(:Country, :Features, :Region, :_1980, :_1981, :_1982, :_1983, :_1984, :_1985, :_1986, :_1987, :_1988, :_1989, :_1990, :_1991, :_1992, :_1993, :_1994, :_1995, :_1996,
-        :_1997, :_1998, :_1999, :_2000, :_2001, :_2002, :_2003, :_2004, :_2005, :_2006, :_2007, :_2008, :_2009, :_2010, :_2011, :_2012, :_2013, :_2014, :_2015, :_2016, :_2017, :_2018, :_2019, :_2020, :_2021)
+      params.require(:global_electricity_statistic).permit(:features, :_1980, :_1981, :_1982, :_1983, :_1984, :_1985, :_1986, :_1987, :_1988, :_1989, :_1990, :_1991, :_1992, :_1993, :_1994, :_1995, :_1996, :_1997, :_1998, :_1999, :_2000, :_2001, :_2002, :_2003, :_2004, :_2005, :_2006, :_2007, :_2008, :_2009, :_2010, :_2011, :_2012, :_2013, :_2014, :_2015, :_2016, :_2017, :_2018, :_2019, :_2020, :_2021, :country_name_id)
     end
 end
