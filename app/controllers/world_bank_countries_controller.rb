@@ -60,13 +60,13 @@ class WorldBankCountriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_world_bank_country
-      @world_bank_country = WorldBankCountry.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_world_bank_country
+    @world_bank_country = WorldBankCountry.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def world_bank_country_params
-      params.require(:world_bank_country).permit(:year, :agriculture, :ease_of_doing_business, :education_expenditure, :export, :gdp, :health_expenditure, :import, :industry, :inflation_rate, :r, :country_name_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def world_bank_country_params
+    params.require(:world_bank_country).permit(:Year, :Agriculture, :EaseOfDoingBusiness, :EducationExpenditure, :Export, :Gdp, :HealthExpenditure, :Import, :Industry, :InflationRate, :R, :CountryNameId)
+  end
 end
