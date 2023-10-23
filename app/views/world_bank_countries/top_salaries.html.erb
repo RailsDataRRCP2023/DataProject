@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h2>Top 10 Salaries for <%= @country.country_name_id %></h2>
+  <div class="row">
+    <% @top_salaries.each do |salary| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Salary: <%= salary.salary %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

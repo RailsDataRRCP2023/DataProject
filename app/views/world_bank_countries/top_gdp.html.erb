@@ -1,0 +1,14 @@
+<h1>Top 10 World Bank Countries by GDP</h1>
+
+<div class="row">
+  <% @top_countries.each do |country| %>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= country.country_name_id %></h5>
+          <p class="card-text">GDP: <%= country.GDP %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

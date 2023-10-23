@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success">
+    <%= notice %>
+  </div>
+<% end %>
 
-<h1>Global electricity statistics</h1>
+<h1 class="mb-4">Global electricity statistics</h1>
 
 <div id="global_electricity_statistics">
   <% @global_electricity_statistics.each do |global_electricity_statistic| %>
-    <%= render global_electricity_statistic %>
-    <p>
-      <%= link_to "Show this global electricity statistic", global_electricity_statistic %>
-    </p>
+    <div class="card mb-3">
+      <div class="card-body">
+        <%= render global_electricity_statistic %>
+        <p class="mt-2">
+          <%= link_to "Show this global electricity statistic", global_electricity_statistic, class: "btn btn-primary" %>
+        </p>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New global electricity statistic", new_global_electricity_statistic_path %>
+<%= link_to "New global electricity statistic", new_global_electricity_statistic_path, class: "btn btn-success mt-3" %>

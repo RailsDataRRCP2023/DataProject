@@ -1,11 +1,16 @@
 class WorldBankCountriesController < ApplicationController
-  before_action :set_world_bank_country, only: %i[ show edit update destroy ]
+  before_action :set_world_bank_country, only: [:show, :edit, :update, :destroy], except: [:top_gdp]
 
   # GET /world_bank_countries or /world_bank_countries.json
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
     @world_bank_countries = WorldBankCountry.limit(100).all
     @pages = WorldBankCountry.count / 100
+  end
+
+  def top_salaries
+    @country = WorldBankCountry.find(params[:id])
+    @top_salaries = AimlSalary.where(Country_Name: @country.Country_Name).order(salary: :desc).limit(10)
   end
 
   # GET /world_bank_countries/1 or /world_bank_countries/1.json
@@ -47,6 +52,10 @@ class WorldBankCountriesController < ApplicationController
         format.json { render json: @world_bank_country.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def top_gdp
+    @top_countries = WorldBankCountry.order(gdp: :desc).limit(10)
   end
 
   # DELETE /world_bank_countries/1 or /world_bank_countries/1.json
