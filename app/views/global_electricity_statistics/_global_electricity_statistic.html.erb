@@ -1,222 +1,26 @@
-<div id="<%= dom_id global_electricity_statistic %>">
-  <p>
-    <strong>Features:</strong>
-    <%= global_electricity_statistic.features %>
-  </p>
+<div id="<%= dom_id global_electricity_statistic %>" class="card">
+  
+  <div class="card-body">
+    
+    <h5 class="card-title">Global Electricity Statistics</h5>
+    
+    <p class="card-text">
+      <strong>Features:</strong>
+      <%= global_electricity_statistic.features %>
+    </p>
 
-  <p>
-    <strong>1980:</strong>
-    <%= global_electricity_statistic._1980 %>
-  </p>
+    <% (1980..2021).each do |year| %>
+      <p class="card-text">
+        <strong><%= year %>:</strong>
+        <%= global_electricity_statistic.send("_#{year}") %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>1981:</strong>
-    <%= global_electricity_statistic._1981 %>
-  </p>
+    <p class="card-text">
+      <strong>Country name:</strong>
+      <%= global_electricity_statistic.country_name_id %>
+    </p>
 
-  <p>
-    <strong>1982:</strong>
-    <%= global_electricity_statistic._1982 %>
-  </p>
-
-  <p>
-    <strong>1983:</strong>
-    <%= global_electricity_statistic._1983 %>
-  </p>
-
-  <p>
-    <strong>1984:</strong>
-    <%= global_electricity_statistic._1984 %>
-  </p>
-
-  <p>
-    <strong>1985:</strong>
-    <%= global_electricity_statistic._1985 %>
-  </p>
-
-  <p>
-    <strong>1986:</strong>
-    <%= global_electricity_statistic._1986 %>
-  </p>
-
-  <p>
-    <strong>1987:</strong>
-    <%= global_electricity_statistic._1987 %>
-  </p>
-
-  <p>
-    <strong>1988:</strong>
-    <%= global_electricity_statistic._1988 %>
-  </p>
-
-  <p>
-    <strong>1989:</strong>
-    <%= global_electricity_statistic._1989 %>
-  </p>
-
-  <p>
-    <strong>1990:</strong>
-    <%= global_electricity_statistic._1990 %>
-  </p>
-
-  <p>
-    <strong>1991:</strong>
-    <%= global_electricity_statistic._1991 %>
-  </p>
-
-  <p>
-    <strong>1992:</strong>
-    <%= global_electricity_statistic._1992 %>
-  </p>
-
-  <p>
-    <strong>1993:</strong>
-    <%= global_electricity_statistic._1993 %>
-  </p>
-
-  <p>
-    <strong>1994:</strong>
-    <%= global_electricity_statistic._1994 %>
-  </p>
-
-  <p>
-    <strong>1995:</strong>
-    <%= global_electricity_statistic._1995 %>
-  </p>
-
-  <p>
-    <strong>1996:</strong>
-    <%= global_electricity_statistic._1996 %>
-  </p>
-
-  <p>
-    <strong>1997:</strong>
-    <%= global_electricity_statistic._1997 %>
-  </p>
-
-  <p>
-    <strong>1998:</strong>
-    <%= global_electricity_statistic._1998 %>
-  </p>
-
-  <p>
-    <strong>1999:</strong>
-    <%= global_electricity_statistic._1999 %>
-  </p>
-
-  <p>
-    <strong>2000:</strong>
-    <%= global_electricity_statistic._2000 %>
-  </p>
-
-  <p>
-    <strong>2001:</strong>
-    <%= global_electricity_statistic._2001 %>
-  </p>
-
-  <p>
-    <strong>2002:</strong>
-    <%= global_electricity_statistic._2002 %>
-  </p>
-
-  <p>
-    <strong>2003:</strong>
-    <%= global_electricity_statistic._2003 %>
-  </p>
-
-  <p>
-    <strong>2004:</strong>
-    <%= global_electricity_statistic._2004 %>
-  </p>
-
-  <p>
-    <strong>2005:</strong>
-    <%= global_electricity_statistic._2005 %>
-  </p>
-
-  <p>
-    <strong>2006:</strong>
-    <%= global_electricity_statistic._2006 %>
-  </p>
-
-  <p>
-    <strong>2007:</strong>
-    <%= global_electricity_statistic._2007 %>
-  </p>
-
-  <p>
-    <strong>2008:</strong>
-    <%= global_electricity_statistic._2008 %>
-  </p>
-
-  <p>
-    <strong>2009:</strong>
-    <%= global_electricity_statistic._2009 %>
-  </p>
-
-  <p>
-    <strong>2010:</strong>
-    <%= global_electricity_statistic._2010 %>
-  </p>
-
-  <p>
-    <strong>2011:</strong>
-    <%= global_electricity_statistic._2011 %>
-  </p>
-
-  <p>
-    <strong>2012:</strong>
-    <%= global_electricity_statistic._2012 %>
-  </p>
-
-  <p>
-    <strong>2013:</strong>
-    <%= global_electricity_statistic._2013 %>
-  </p>
-
-  <p>
-    <strong>2014:</strong>
-    <%= global_electricity_statistic._2014 %>
-  </p>
-
-  <p>
-    <strong>2015:</strong>
-    <%= global_electricity_statistic._2015 %>
-  </p>
-
-  <p>
-    <strong>2016:</strong>
-    <%= global_electricity_statistic._2016 %>
-  </p>
-
-  <p>
-    <strong>2017:</strong>
-    <%= global_electricity_statistic._2017 %>
-  </p>
-
-  <p>
-    <strong>2018:</strong>
-    <%= global_electricity_statistic._2018 %>
-  </p>
-
-  <p>
-    <strong>2019:</strong>
-    <%= global_electricity_statistic._2019 %>
-  </p>
-
-  <p>
-    <strong>2020:</strong>
-    <%= global_electricity_statistic._2020 %>
-  </p>
-
-  <p>
-    <strong>2021:</strong>
-    <%= global_electricity_statistic._2021 %>
-  </p>
-
-  <p>
-    <strong>Country name:</strong>
-    <%= global_electricity_statistic.country_name_id %>
-  </p>
+  </div>
 
 </div>

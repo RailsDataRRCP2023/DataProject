@@ -1,52 +1,25 @@
-<div id="<%= dom_id aiml_salary %>">
-  <p>
-    <strong>Work year:</strong>
-    <%= aiml_salary.work_year %>
-  </p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= aiml_salary.country_name_id %></h5> <!-- Used the country name as the card title for reference -->
 
-  <p>
-    <strong>Experience level:</strong>
-    <%= aiml_salary.experience_level %>
-  </p>
+    <p class="card-text">
+      <strong>Work year:</strong> <%= aiml_salary.work_year %><br>
 
-  <p>
-    <strong>Employment type:</strong>
-    <%= aiml_salary.employment_type %>
-  </p>
+      <strong>Experience level:</strong> <%= aiml_salary.experience_level %><br>
 
-  <p>
-    <strong>Job title:</strong>
-    <%= aiml_salary.job_title %>
-  </p>
+      <strong>Employment type:</strong> <%= aiml_salary.employment_type %><br>
 
-  <p>
-    <strong>Salary:</strong>
-    <%= aiml_salary.salary %>
-  </p>
+      <strong>Job title:</strong> <%= aiml_salary.job_title %><br>
 
-  <p>
-    <strong>Salary currency:</strong>
-    <%= aiml_salary.salary_currency %>
-  </p>
+      <strong>Salary:</strong> <%= aiml_salary.salary %><br>
 
-  <p>
-    <strong>Salary in usd:</strong>
-    <%= aiml_salary.salary_in_usd %>
-  </p>
+      <strong>Salary currency:</strong> <%= aiml_salary.salary_currency %><br>
 
-  <p>
-    <strong>Remote ratio:</strong>
-    <%= aiml_salary.remote_ratio %>
-  </p>
+      <strong>Salary in usd:</strong> <%= aiml_salary.salary_in_usd %><br>
 
-  <p>
-    <strong>Company size:</strong>
-    <%= aiml_salary.company_size %>
-  </p>
+      <strong>Remote ratio:</strong> <%= aiml_salary.remote_ratio %><br>
 
-  <p>
-    <strong>Country name:</strong>
-    <%= aiml_salary.country_name_id %>
-  </p>
-
+      <strong>Company size:</strong> <%= aiml_salary.company_size %><br>
+    </p>
+  </div>
 </div>

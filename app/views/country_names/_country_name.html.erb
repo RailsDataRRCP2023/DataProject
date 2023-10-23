@@ -1,12 +1,19 @@
-<div id="<%= dom_id country_name %>">
-  <p>
-    <strong>Country code:</strong>
-    <%= country_name.country_code %>
-  </p>
+<div id="<%= dom_id country_name %>" class="card">
+  
+  <div class="card-body">
+    
+    <h5 class="card-title">Country Information</h5>
 
-  <p>
-    <strong>Country name:</strong>
-    <%= country_name.country_name %>
-  </p>
+    <p class="card-text">
+      <strong>Country code:</strong>
+      <%= country_name.country_code %>
+    </p>
+
+    <p class="card-text">
+      <strong>Country name:</strong>
+      <%= country_name.country_name %>
+    </p>
+
+  </div>
 
 </div>
