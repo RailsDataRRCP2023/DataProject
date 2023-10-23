@@ -5,10 +5,10 @@ require 'json'
 
 # Clear all tables
 pp 'Clear all tables'
-# AimlSalary.destroy_all
+AimlSalary.destroy_all
 GlobalElectricityStatistic.destroy_all
 WorldBankCountry.destroy_all
-# CountryName.destroy_all
+CountryName.destroy_all
 
 # Countries Names Dataset
 pp 'Countries Names Dataset'
@@ -39,9 +39,7 @@ pp 'Global Electricity Statistics Dataset'
 CSV.foreach('db/global_electricity_statistics.csv', headers: true) do |row|
     begin
         record = row.to_hash
-        pp(record)
-        record['Country'] = record['Country'].strip
-        record['country_name_id'] = CountryName.find_by(country_code: record['Country']).id
+        record["country_name_id"] = CountryName.find_by(country_code: "US").id
         GlobalElectricityStatistic.create! record.select { |k, _| GlobalElectricityStatistic.column_names.include?(k) }.to_hash
     rescue => exception
         pp 'Global Electricity Statistics Dataset: ' + exception.to_s
@@ -53,7 +51,7 @@ pp 'WorldBankCountries Dataset'
 CSV.foreach('db/world_bank_countries.csv', headers: true) do |row|
     begin
         record = row.to_hash
-        record['country_name_id'] = CountryName.find_by(country_code: record['country_name']).id
+        record['country_name_id'] = CountryName.find_by(country_code: 'US').id
         WorldBankCountry.create! record.select { |k, _| WorldBankCountry.column_names.include?(k) }.to_hash
     rescue => exception
         pp 'WorldBankCountries Dataset: ' + exception.to_s
