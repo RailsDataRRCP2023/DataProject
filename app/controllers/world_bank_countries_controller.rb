@@ -67,6 +67,6 @@ class WorldBankCountriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def world_bank_country_params
-    params.require(:world_bank_country).permit(:Year, :Agriculture, :EaseOfDoingBusiness, :EducationExpenditure, :Export, :Gdp, :HealthExpenditure, :Import, :Industry, :InflationRate, :R, :CountryNameId)
+    params.require(:world_bank_country).permit(:Year, :Agriculture, :Ease_Of_Doing_Business, :Education_Expenditure, :Export, :GDP, :Health_Expenditure, :Import, :Industry, :Inflation_Rate, :R, :country_name_id)
   end
 end
