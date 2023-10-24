@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   resources :countries_names
   
   get 'about', to: 'about#index'
+
+  get 'search', to: 'search#index'
 end

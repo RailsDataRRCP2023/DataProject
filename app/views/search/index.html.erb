@@ -1,0 +1,63 @@
+Search Results:
+
+<!-- Dropdown to filter items by class (salary, electricity, world, all(default)) -->
+<select id="filter" class="form-select" aria-label="Default select example">
+    <option value="all" selected>All</option>
+    <option value="salary">Salaries</option>
+    <option value="electricity">Electricities</option>
+    <option value="world">World Bank Data</option>
+</select>
+
+<script>
+    // Filter function
+    $(document).ready(function(){
+        $("#filter").change(function(){
+            var value = $(this).val().toLowerCase();
+            if (value == "all") {
+                $(".flex-item").show();
+            } else {
+                $("#salary, #electricity, #world").hide();
+                $("#" + value).show();
+            }
+        });
+    });
+
+    // Put the search query into the search box
+    $(document).ready(function(){
+        var query = "<%= params[:query] %>";
+        $("input[name='query']").val(query);
+    });
+</script>
+
+<!-- Flex to show results -->
+<div class="d-flex">
+    <div id="salary" class="flex-item">
+        <h2>Salaries</h2>
+  <% @salaries.each do |salary| %>
+    <div class="m-2 border border-secondary rounded-2">
+      <h3><%= salary.job_title %></h3>
+      <%= link_to "See here for more info", salary %>
+    </div>
+    <% end %>
+    </div>
+
+    <div id="electricity" class="flex-item">
+        <h2>Electricities</h2>
+    <% @electricities.each do |electricity| %>
+      <div class="m-2 border border-secondary rounded-2">
+        <h3><%= electricity.Features %></h3>
+        <%= link_to "See here for more info", electricity %>
+      </div>
+    <% end %>
+    </div>
+
+    <div id="world" class="flex-item">
+        <h2>World Bank Data</h2>
+      <% @worlds.each do |world| %>
+        <div class="m-2 border border-secondary rounded-2">
+          <h3><%= world.Year %></h3>
+            <%= link_to "See here for more info", world %>
+        </div>
+    <% end %>
+    </div>
+</div>
