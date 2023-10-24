@@ -33,17 +33,18 @@ class AimlSalariesController < ApplicationController
     JOIN country_names c ON wb.country_name_id = c.id
     ORDER BY wb.GDP DESC 
     LIMIT 2
-  SQL
+    SQL
 
-  @worldbankcountries = []
+    @worldbankcountries = []
 
-  salary = AimlSalary.find(params[:id])
+    @aiml_salaries.each { |salary|
     worldbank = ActiveRecord::Base.connection.execute(world_bank_countries_query)
     worldbank.each { |wbc| 
-      wbc["GDP_id"] = salary["id"]
+      wbc["salary_id"] = salary["id"]
     }
    
-    @worldbanks << worldbank
+    @worldbankcountries << worldbank
+  }
 
     @pages = AimlSalary.count / 100
   end
