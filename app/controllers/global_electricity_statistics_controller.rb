@@ -60,9 +60,9 @@ class GlobalElectricityStatisticsController < ApplicationController
     LIMIT 2
   SQL
 
-  @salaries = []
+    @salaries = []
 
-  electricity = GlobalElectricityStatistic.find(params[:id])
+    electricity = GlobalElectricityStatistic.find(params[:id])
     salary = ActiveRecord::Base.connection.execute(aiml_salaries_query)
 
     salary.each { |sal|
