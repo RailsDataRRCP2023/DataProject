@@ -4,13 +4,55 @@ class AimlSalariesController < ApplicationController
   # GET /aiml_salaries or /aiml_salaries.json
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
-    @aiml_salaries = AimlSalary.limit(100).all
+
+    @aiml_salaries = AimlSalary.limit(100).offset((@page - 1 ) * 100).all
+    # Add Top 10 global electricity statistics (joined by country_name_id)
+    electricity_stats_query = <<-SQL
+      SELECT es.*, c.country_name as country_name
+      FROM global_electricity_statistics es
+      JOIN country_names c ON es.country_name_id = c.id
+      ORDER BY es.Features DESC 
+      LIMIT 2
+    SQL
+
+    @electricities = []
+
+    @aiml_salaries.each { |salary|
+      electricity = ActiveRecord::Base.connection.execute(electricity_stats_query)
+      electricity.each { |elec| 
+        elec["salary_id"] = salary["id"]
+      }
+     
+      @electricities << electricity
+    }
+
+
+
     @pages = AimlSalary.count / 100
   end
 
   # GET /aiml_salaries/1 or /aiml_salaries/1.json
   def show
+    electricity_stats_query = <<-SQL
+      SELECT es.*, c.country_name as country_name
+      FROM global_electricity_statistics es
+      JOIN country_names c ON es.country_name_id = c.id
+      ORDER BY es.Features DESC 
+      LIMIT 2
+    SQL
+
+    @electricities = []
+
+    salary = AimlSalary.find(params[:id])
+      electricity = ActiveRecord::Base.connection.execute(electricity_stats_query)
+      electricity.each { |elec| 
+        elec["salary_id"] = salary["id"]
+      }
+     
+      @electricities << electricity
+    
   end
+  
 
   # GET /aiml_salaries/new
   def new
