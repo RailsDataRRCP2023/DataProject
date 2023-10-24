@@ -4,7 +4,7 @@ class GlobalElectricityStatisticsController < ApplicationController
   # GET /global_electricity_statistics or /global_electricity_statistics.json
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
-    @global_electricity_statistics = GlobalElectricityStatistic.limit(100).all
+    @global_electricity_statistics = GlobalElectricityStatistic.limit(100).offset((@page - 1 ) * 100).all
 
     # Add Top 10 global electricity statistics (joined by country_name_id)
     aiml_salaries_query = <<-SQL

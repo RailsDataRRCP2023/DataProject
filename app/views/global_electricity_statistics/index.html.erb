@@ -7,6 +7,15 @@
 <h1 class="mb-4">Global electricity statistics</h1>
 
 <div id="global_electricity_statistics">
+  Page <%= @page %> of <%= @pages %>
+  Pick a page:
+  <% (1..@pages).each do |page| %>
+    <% if page == @page %>
+      <%= page %>
+    <% else %>
+      <a href="<%= global_electricity_statistics_path(page: page - 1) %>"><%= page %></a>
+    <% end %>
+  <% end %>
   <% @global_electricity_statistics.each do |global_electricity_statistic| %>
     <div class="card mb-3">
       <div class="card-body">

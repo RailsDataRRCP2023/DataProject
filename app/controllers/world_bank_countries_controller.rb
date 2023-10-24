@@ -4,7 +4,7 @@ class WorldBankCountriesController < ApplicationController
   # GET /world_bank_countries or /world_bank_countries.json
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
-    @world_bank_countries = WorldBankCountry.limit(100).all
+    @world_bank_countries = WorldBankCountry.limit(100).offset((@page - 1 ) * 100).all
     @pages = WorldBankCountry.count / 100
   end
 
