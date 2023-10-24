@@ -1,7 +1,7 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= aiml_salary.country_name_id %></h5> <!-- Used the country name as the card title for reference -->
-
+    
     <p class="card-text">
       <strong>Work year:</strong> <%= aiml_salary.work_year %><br>
 
@@ -21,35 +21,34 @@
 
       <strong>Company size:</strong> <%= aiml_salary.company_size %><br>
 
-    <strong>Top 10 Electricity Stats:</strong>
-    <ul>
-       <% @electricities.each do |elect| %>
-       <% elect.each do |elec| %>
-       <%if elec["salary_id"].to_s == aiml_salary.id.to_s %>
-       <li>
-       <%= link_to "View Electricity", "/global_electricity_statistics/#{elec["id"]}" %>
+      <strong>Top 10 Electricity Stats:</strong>
+      <ul>
+        <% @electricities.each do |elect| %>
+        <% elect.each do |elec| %>
+        <%if elec["salary_id"].to_s == aiml_salary.id.to_s %>
+        <li>
+        <%= link_to "View Electricity", "/global_electricity_statistics/#{elec["id"]}" %>
 
-       <%= elec["Features"] %>
-       </li>
-       <% end %>
-       <% end %>
-       <% end %>
-    </ul>
+        <%= elec["Features"] %>
+        </li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
 
-    <strong>Top 10 World Bank Countries:</strong>
-    <ul>
-        <% @worldbankcountries.each do |wbc| %>
-       <% wbc.each do |wb| %>
-       <%if wb["salary_id"].to_s == aiml_salary.id.to_s %>
-       <li>
-       <%= link_to "View GDP", "/world_bank_countries/#{wb["id"]}" %>
+      <strong>Top 10 World Bank Countries:</strong>
+      <ul>
+          <% @worldbankcountries.each do |wbc| %>
+        <% wbc.each do |wb| %>
+        <%if wb["salary_id"].to_s == aiml_salary.id.to_s %>
+        <li>
+        <%= link_to "View GDP", "/world_bank_countries/#{wb["id"]}" %>
 
-       <%= wb["GDP"] %>
-       </li>
-       <% end %>
-       <% end %>
-       <% end %>
-    </ul>
-    </p>
+        <%= wb["GDP"] %>
+        </li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
   </div>
 </div>

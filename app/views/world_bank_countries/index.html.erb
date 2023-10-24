@@ -7,6 +7,8 @@
 <h1 class="mb-4">World bank countries</h1>
 
 <div id="world_bank_countries">
+  <p class="bg-primary-subtle">
+
   Page <%= @page %> of <%= @pages %>
   Pick a page:
   <% (1..@pages).each do |page| %>
@@ -16,6 +18,7 @@
       <a href="<%= world_bank_countries_path(page: page - 1) %>"><%= page %></a>
     <% end %>
   <% end %>
+  </p>
   <% @world_bank_countries.each do |world_bank_country| %>
     <div class="card mb-3">
       <div class="card-body">

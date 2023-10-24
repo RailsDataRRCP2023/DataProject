@@ -31,6 +31,46 @@ class GlobalElectricityStatisticsController < ApplicationController
 
   # GET /global_electricity_statistics/1 or /global_electricity_statistics/1.json
   def show
+    # World Bank
+    world_bank_countries_query = <<-SQL
+    SELECT wb.*, c.country_name as country_name
+    FROM world_bank_countries wb
+    JOIN country_names c ON wb.country_name_id = c.id
+    ORDER BY wb.GDP DESC 
+    LIMIT 2
+  SQL
+
+  @worldbankcountries = []
+
+  salary = AimlSalary.find(params[:id])
+    worldbank = ActiveRecord::Base.connection.execute(world_bank_countries_query)
+    
+    worldbank.each { |wbc| 
+      wbc["GDP_id"] = salary["id"]
+    }
+    # pp(worldbank)
+    @worldbankcountries << worldbank    
+
+    # Salary
+    aiml_salaries_query = <<-SQL
+    SELECT sal.*, c.country_name as country_name
+    FROM aiml_salaries sal
+    JOIN country_names c ON sal.country_name_id = c.id
+    ORDER BY sal.job_title DESC
+    LIMIT 2
+  SQL
+
+    @salaries = []
+
+    electricity = GlobalElectricityStatistic.find(params[:id])
+    salary = ActiveRecord::Base.connection.execute(aiml_salaries_query)
+
+    salary.each { |sal|
+      sal["job_title_id"] = electricity["id"]
+      @salaries << salary
+
+    }
+
   end
 
   # GET /global_electricity_statistics/new
