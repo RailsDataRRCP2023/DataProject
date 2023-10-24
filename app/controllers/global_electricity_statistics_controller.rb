@@ -5,6 +5,27 @@ class GlobalElectricityStatisticsController < ApplicationController
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
     @global_electricity_statistics = GlobalElectricityStatistic.limit(100).all
+
+    # Add Top 10 global electricity statistics (joined by country_name_id)
+    aiml_salaries_query = <<-SQL
+    SELECT sal.*, c.country_name as country_name
+    FROM aiml_salaries sal
+    JOIN country_names c ON sal.country_name_id = c.id
+    ORDER BY sal.job_title DESC 
+    LIMIT 2
+    SQL
+
+    @salaries = []
+
+    @global_electricity_statistics.each { |stat|
+      salary = ActiveRecord::Base.connection.execute(aiml_salaries_query)
+      salary.each { |sal| 
+        sal["job_title_id"] = stat["id"]
+      }
+    
+      @salaries << salary
+    }
+
     @pages = GlobalElectricityStatistic.count / 100
   end
 
