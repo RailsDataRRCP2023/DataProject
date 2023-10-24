@@ -5,12 +5,28 @@ class WorldBankCountriesController < ApplicationController
   def index
     @page = (params[:page].to_i if params[:page] && params[:page].to_i > 0 || 1) + 1
     @world_bank_countries = WorldBankCountry.limit(100).offset((@page - 1 ) * 100).all
-    @pages = WorldBankCountry.count / 100
-  end
 
-  def top_salaries
-    @country = WorldBankCountry.find(params[:id])
-    @top_salaries = AimlSalary.where(Country_Name: @country.Country_Name).order(salary: :desc).limit(10)
+    # Add Top 10 global electricity statistics (joined by country_name_id)
+    aiml_salaries_query = <<-SQL
+    SELECT sal.*, c.country_name as country_name
+    FROM aiml_salaries sal
+    JOIN country_names c ON sal.country_name_id = c.id
+    ORDER BY sal.job_title DESC 
+    LIMIT 2
+    SQL
+
+    @countries = []
+
+    @world_bank_countries.each { |wbc|
+      wb = ActiveRecord::Base.connection.execute(aiml_salaries_query)
+      wb.each { |country| 
+        country["Year_id"] = wbc["id"]
+      }
+    
+      @countries << wb
+    }
+
+    @pages = WorldBankCountry.count / 100
   end
 
   # GET /world_bank_countries/1 or /world_bank_countries/1.json

@@ -59,4 +59,19 @@
     <%= world_bank_country.country_name_id %>
   </p>
 
+  <strong>Top 10 Countries:</strong>
+    <ul>
+       <% @countries.each do |cnt| %>
+       <% cnt.each do |ct| %>
+       <%if ct["Year_id"].to_s == world_bank_country.id.to_s %>
+       <li>
+       <%= link_to "View Job Titles", "/aiml_salaries/#{ct["id"]}" %>
+
+       <%= ct["Year"] %>
+       </li>
+       <% end %>
+       <% end %>
+       <% end %>
+    </ul>
+
 </div>
