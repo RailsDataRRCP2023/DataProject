@@ -38,7 +38,17 @@
 
     <strong>Top 10 World Bank Countries:</strong>
     <ul>
-        
+        <% @worldbankcountries.each do |wbc| %>
+       <% wbc.each do |wb| %>
+       <%if wb["GDP_id"].to_s == aiml_salary.id.to_s %>
+       <li>
+       <%= link_to "View GDP", "/world_bank_countries/#{wb["id"]}" %>
+
+       <%= wb["GDP"] %>
+       </li>
+       <% end %>
+       <% end %>
+       <% end %>
     </ul>
     </p>
   </div>
